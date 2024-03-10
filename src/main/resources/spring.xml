@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+<!--<bean id = "users" class="org.mylearningproject.Users" autowire="byName">-->
+    <!--<bean id = "users" class="org.mylearningproject.Users" autowire="byType">-->
+
+<bean id = "users" class="org.mylearningproject.Users">
+    <property name="count" value="20"></property>
+
+<!--    if we have refrence of object call like this ref:1-->
+<!--    <property name="collage" ref="collage">-->
+
+<!--    THis is example of inner bean if we wants to make bean bound in inner bean-->
+   <property name="collage">
+       <bean id="collage" class="org.mylearningproject.Admin" lazy-init="true"></bean>
+    </property>
+<!--  <property name="collage" ref="col"></property>-->
+<!--    This is one way by defining name and maintain order ..while constructer properties at other end -->
+<!--    <constructor-arg name = "mobile" value="984874747" />-->
+<!--    <constructor-arg name="name" value="Devesh"  />-->
+
+    <constructor-arg index = "1" value="984874747" />
+    <constructor-arg index = "0" value="Devesh"  />
+
+
+    </bean>
+    <!--    if we have refrence of object call like this ref:1-->
+<!--    Lazy init means the object will created only when object is created or in use-->
+<!--        <bean id="collage" class="org.mylearningproject.Admin" lazy-init="true">-->
+<!--        </bean>-->
+<!--    if put primary in case of confusion acts as primary-->
+<!--    <bean id="collage" class="org.mylearningproject.Admin" primary="true">-->
+<!--        </bean>-->
+<!--    <bean id="collage1" class="org.mylearningproject.SuperAdmin">-->
+<!--        </bean>-->
+
+    </beans>
