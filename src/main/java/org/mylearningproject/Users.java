@@ -1,9 +1,12 @@
 package org.mylearningproject;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import java.beans.ConstructorProperties;
 
 public class Users{
     private int count ;
+    @Qualifier("admin")
     private Collage collage;
     String name ;
     String mobile;
@@ -32,10 +35,12 @@ public class Users{
         this.mobile = mobile;
     }
 
-    @ConstructorProperties({"name","mobile"})
-    public Users(String name, String mobile) {
+ //   @ConstructorProperties({"name","mobile"})
+    public Users(String name, String mobile ,Collage collage) {
+        System.out.println("kfkkfkfk1122");
         this.name = name;
         this.mobile = mobile;
+       this.collage = collage;
     }
 
     public Users() {
@@ -51,8 +56,8 @@ public class Users{
         this.count = count;
     }
 
-
     public String getBranch() {
+        //System.out.println(name);
         return collage.getBranch();
     }
 }
